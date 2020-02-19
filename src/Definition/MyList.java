@@ -5,6 +5,16 @@ import Adt.MyListADT;
 public class MyList<E> implements MyListADT {
    private Node<E> head=null;
    private int size=0;
+   private Node<E> getNode(int index)
+   {
+       Node<E> response = head;
+       for (int i = 0; i < index; i++) {
+           response=response.getNext();
+
+       }
+       return response;
+
+   }
    public void addFirst(E item)
    {
        head=new Node(item,head);
