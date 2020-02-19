@@ -85,10 +85,6 @@ public class MyList<E> implements MyListADT<E> {
     public E remove() {
         return remove(size - 1);
     }
-
-
-
-
     private static  class Node<E>
     {
         private E data;
