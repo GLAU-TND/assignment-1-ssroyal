@@ -6,9 +6,18 @@ import java.util.Scanner;
 
 public class MyContacts implements MyContactsAdt {
     Scanner sc = new Scanner(System.in);
+    MyList<Person> MyContactsBook = new MyList<Person>();
+    MyList<String> contactNumbers = new MyList<>();
 
     @Override
     public void addContact() {
+        String firstname = GetFirstName();
+        String lastname = GetLastname();
+        contactNumbers = GetContactnumbers();
+        String Email = GetEmail();
+        Person newContact;
+        newContact = new Person(firstname, lastname, Email, contactNumbers);
+        MyContactsBook.add(newContact);
 
 
     }
