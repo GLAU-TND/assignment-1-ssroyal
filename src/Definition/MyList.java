@@ -2,7 +2,7 @@ package Definition;
 
 import Adt.MyListADT;
 
-public class MyList<E> implements MyListADT {
+public class MyList<E> implements MyListADT<E> {
     private Node<E> head = null;
     private int size = 0;
 
@@ -38,19 +38,18 @@ public class MyList<E> implements MyListADT {
     }
 
     @Override
-    public void add(Object item) {
+    public void add(E item) {
+        add(item, size);
 
     }
 
-
-
     @Override
-    public Object remove(Object item) {
+    public E remove(E item) {
         return null;
     }
 
     @Override
-    public int search(Object item) {
+    public int search(E item) {
         return 0;
     }
 
