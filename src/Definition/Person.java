@@ -25,7 +25,20 @@ public class Person {
         return Email;
     }
 
-    public MyList<String> getContactNumbers() {
-        return ContactNumbers;
+    public String getContactNumbers() {
+        String contacts = null;
+        boolean a = false;
+        for (int i = 0; i < ContactNumbers.size; i++) {
+            if (i == 0) {
+                contacts = contacts + ContactNumbers.getData(i);
+            } else
+                contacts = contacts + "," + ContactNumbers.getData(i);
+        }
+        if (ContactNumbers.size == 1) {
+            a = true;
+        }
+        return a ? "Contact: " + contacts : "Contacts:" + contacts;
     }
+
+
 }
