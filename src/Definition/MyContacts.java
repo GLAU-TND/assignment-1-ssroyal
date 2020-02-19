@@ -43,5 +43,26 @@ public class MyContacts implements MyContactsAdt {
 
     }
 
+    private MyList<String> GetContactnumbers() {
+        MyList<String> contactNumbers = new MyList<String>();
+        System.out.print("ContactNumber: ");
+        String contactno = sc.next();
+        contactNumbers.add(contactno);
+        while (true) {
+            System.out.print("Do You Want to add a new Contactnumber? (y/n) :");
+            String a = sc.next();
+            if (a.equals("y")) {
+                System.out.print("ContactNumber: ");
+                contactno = sc.next();
+                contactNumbers.add(contactno);
+            } else if (a.equals("n")) {
+                break;
+            } else {
+                System.out.println("Please Enter a Vaild Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
+            }
+        }
+        return contactNumbers;
+    }
+
 
 }
