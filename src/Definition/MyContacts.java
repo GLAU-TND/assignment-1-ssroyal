@@ -24,6 +24,13 @@ public class MyContacts implements MyContactsAdt {
 
     @Override
     public void viewContacts() {
+        System.out.println("---Here are all your contacts---\n" +
+                "-------- * -------- * -------- * --------");
+        Person response = null;
+        for (int i = 0; i < MyContactsBook.size; i++) {
+            response = MyContactsBook.getData(i);
+            System.out.println(response);
+        }
 
     }
 
