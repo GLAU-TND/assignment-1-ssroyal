@@ -27,12 +27,12 @@ public class MyList<E> implements MyListADT<E> {
 
     }
 
-    public void addFirst(E item) {
+    private void addFirst(E item) {
         head = new Node(item, head);
         size++;
     }
 
-    public void addafter(E item, Node<E> afternode) {
+    private void addafter(E item, Node<E> afternode) {
         afternode.next = new Node<>(item, afternode.next);
         size++;
     }
@@ -41,6 +41,20 @@ public class MyList<E> implements MyListADT<E> {
     public void add(E item) {
         add(item, size);
 
+    }
+
+    private E removefirst() {
+        Node<E> temp = head;
+        E response = null;
+        if (head != null) {
+            head = head.getNext();
+        }
+        if (temp != null) {
+            size--;
+            response = temp.getData();
+
+        }
+        return response;
     }
 
     @Override
