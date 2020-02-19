@@ -1,6 +1,44 @@
 package Definition;
 
-public class MyList {
+import Adt.MyListADT;
+
+public class MyList<E> implements MyListADT {
+   private Node<E> head=null;
+   private int size=0;
+   public void addFirst(E item)
+   {
+       head=new Node(item,head);
+       size++;
+   }
+
+    @Override
+    public void add(Object item) {
+
+    }
+
+
+
+    @Override
+    public Object remove(Object item) {
+        return null;
+    }
+
+    @Override
+    public int search(Object item) {
+        return 0;
+    }
+
+    @Override
+    public void sort() {
+
+    }
+
+    @Override
+    public void print() {
+
+    }
+
+
     private static  class Node<E>
     {
         private E data;
