@@ -10,6 +10,11 @@ public class MyList<E> implements MyListADT {
        head=new Node(item,head);
        size++;
    }
+    public void addafter(E item,Node<E> afternode)
+    {
+        afternode.next= new Node<>(item,afternode.next);
+        size++;
+    }
 
     @Override
     public void add(Object item) {
