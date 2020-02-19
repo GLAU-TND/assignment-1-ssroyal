@@ -26,7 +26,7 @@ public class Person {
     }
 
     public String getContactNumbers() {
-        String contacts = null;
+        String contacts = "";
         boolean a = false;
         for (int i = 0; i < ContactNumbers.size; i++) {
             if (i == 0) {
@@ -38,6 +38,12 @@ public class Person {
             a = true;
         }
         return a ? "Contact: " + contacts : "Contacts:" + contacts;
+    }
+
+    @Override
+    public String toString() {
+        return "Firstname: " + getFirstName() + "\n" + "Lastname:" + getLastName() + "\n" + getContactNumbers() + "\n" + "Email:" + getEmail() + "\n" + "-------- * -------- * -------- * --------\n" +
+                "-------- * -------- * -------- * --------";
     }
 
 
