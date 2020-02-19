@@ -19,6 +19,7 @@ public class MyContacts implements MyContactsAdt {
         Person newContact;
         newContact = new Person(firstname, lastname, Email, contactNumbers);
         MyContactsBook.add(newContact);
+        System.out.println("Contact Added SucessFully");
 
 
     }
