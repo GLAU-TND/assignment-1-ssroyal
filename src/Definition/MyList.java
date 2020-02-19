@@ -3,26 +3,37 @@ package Definition;
 import Adt.MyListADT;
 
 public class MyList<E> implements MyListADT {
-   private Node<E> head=null;
-   private int size=0;
-   private Node<E> getNode(int index)
-   {
-       Node<E> response = head;
-       for (int i = 0; i < index; i++) {
-           response=response.getNext();
+    private Node<E> head = null;
+    private int size = 0;
 
-       }
-       return response;
+    private Node<E> getNode(int index) {
+        Node<E> response = head;
+        for (int i = 0; i < index; i++) {
+            response = response.getNext();
 
-   }
-   public void addFirst(E item)
-   {
-       head=new Node(item,head);
-       size++;
-   }
-    public void addafter(E item,Node<E> afternode)
-    {
-        afternode.next= new Node<>(item,afternode.next);
+        }
+        return response;
+
+    }
+
+    public void add(E item, int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException(Integer.toString(index));
+        } else if (index == 0) {
+            addFirst(item);
+        } else {
+            addafter(item, getNode(index - 1));
+        }
+
+    }
+
+    public void addFirst(E item) {
+        head = new Node(item, head);
+        size++;
+    }
+
+    public void addafter(E item, Node<E> afternode) {
+        afternode.next = new Node<>(item, afternode.next);
         size++;
     }
 
