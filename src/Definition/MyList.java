@@ -67,6 +67,20 @@ public class MyList<E> implements MyListADT<E> {
         return respone;
     }
 
+    public E remove(int index) {
+        E response = null;
+
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException(Integer.toString(index));
+        } else if (index == 0) {
+            response = removefirst();
+        } else {
+            Node<E> previousNode = getNode(index - 1);
+            response = removeAfter(previousNode);
+        }
+        return response;
+    }
+
     @Override
     public E remove(E item) {
         return null;
