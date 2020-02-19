@@ -86,20 +86,7 @@ public class MyList<E> implements MyListADT<E> {
         return remove(size - 1);
     }
 
-    @Override
-    public int search(E item) {
-        return 0;
-    }
 
-    @Override
-    public void sort() {
-
-    }
-
-    @Override
-    public void print() {
-
-    }
 
 
     private static  class Node<E>

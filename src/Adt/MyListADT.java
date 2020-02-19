@@ -5,10 +5,6 @@ public interface MyListADT<E> {
 
     E remove();
 
-    int search(E item);
 
-    void sort();
-
-    void print();
 
 }
