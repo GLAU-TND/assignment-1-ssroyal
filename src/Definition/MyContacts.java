@@ -64,5 +64,19 @@ public class MyContacts implements MyContactsAdt {
         return contactNumbers;
     }
 
+    private String GetEmail() {
+        String Email = null;
+        System.out.print("Do You Want to add an email ? (y/n) :");
+        String a = sc.next();
+        if (a.equals("y")) {
+            System.out.print("Email Address: ");
+            Email = sc.next();
+        } else if (a.equals("n")) {
+        } else {
+            System.out.println("Please Enter a Vaild Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
+        }
+        return Email;
+    }
+
 
 }
