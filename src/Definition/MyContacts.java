@@ -28,5 +28,13 @@ public class MyContacts implements MyContactsAdt {
 
     }
 
+    private String GetFirstName() {
+        System.out.println("Please Enter the name of the Person");
+        System.out.print("FirstName: ");
+        String firstname = sc.next();
+        return firstname;
+
+    }
+
 
 }
