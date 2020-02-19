@@ -36,5 +36,12 @@ public class MyContacts implements MyContactsAdt {
 
     }
 
+    private String GetLastname() {
+        System.out.print("Lastname: ");
+        String lastname = sc.next();
+        return lastname;
+
+    }
+
 
 }
