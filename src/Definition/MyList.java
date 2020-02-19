@@ -82,7 +82,7 @@ public class MyList<E> implements MyListADT<E> {
     }
 
     @Override
-    public E remove(E item) {
+    public E remove() {
         return null;
     }
 
