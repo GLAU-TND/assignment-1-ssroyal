@@ -1,11 +1,14 @@
 package Execution;
 
+import Definition.MyContacts;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean response = false;
+        MyContacts user = new MyContacts();
+        boolean response = true;
         do {
             System.out.println("Welcome to Saurabh's Contact List App\n" +
                     "Press 1 to add a new contact\n" +
@@ -13,6 +16,28 @@ public class Main {
                     "Press 3 to search for a contact\n" +
                     "Press 4 to delete a contact\n" +
                     "Press 5 to exit program ");
+            int choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    user.addContact();
+                    break;
+                case 2:
+                    user.viewContacts();
+                    break;
+                case 3:
+                    user.searchcontact();
+                    break;
+                case 4:
+                    user.deletecontact();
+                    break;
+                case 5:
+                    System.out.println("Thank You");
+                    System.out.println("Have a great Day");
+                    response = false;
+                    break;
+                default:
+                    System.out.println("Invaild Option");
+            }
 
         } while (response);
 
