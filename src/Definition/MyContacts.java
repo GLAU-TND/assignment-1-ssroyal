@@ -11,6 +11,7 @@ public class MyContacts implements MyContactsAdt {
 
     @Override
     public void addContact() {
+        System.out.println("You have chosen to add a new contact:");
         String firstname = GetFirstName();
         String lastname = GetLastname();
         contactNumbers = GetContactnumbers();
