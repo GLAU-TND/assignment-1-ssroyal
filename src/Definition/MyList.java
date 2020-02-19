@@ -4,7 +4,7 @@ import Adt.MyListADT;
 
 public class MyList<E> implements MyListADT<E> {
     private Node<E> head = null;
-    private int size = 0;
+    public int size = 0;
 
     private Node<E> getNode(int index) {
         Node<E> response = head;
@@ -85,8 +85,13 @@ public class MyList<E> implements MyListADT<E> {
     public E remove() {
         return remove(size - 1);
     }
-    private static  class Node<E>
-    {
+
+    @Override
+    public E getData(int index) {
+        return getNode(index).getData();
+    }
+
+    private static class Node<E> {
         private E data;
         private Node<E> next;
 

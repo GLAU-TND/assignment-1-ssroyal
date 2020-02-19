@@ -5,6 +5,7 @@ public interface MyListADT<E> {
 
     E remove();
 
+    E getData(int index);
 
 
 }
