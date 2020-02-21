@@ -187,6 +187,7 @@ public class MyContacts implements MyContactsAdt {
             if (at == 'y') {
                 System.out.print("Email Address: ");
                 Email = sc.next();
+                break;
             } else if (at == 'n') {
                 break;
             } else {
