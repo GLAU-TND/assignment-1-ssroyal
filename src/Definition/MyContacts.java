@@ -4,6 +4,7 @@ import Adt.MyContactsAdt;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class MyContacts implements MyContactsAdt {
     Scanner sc = new Scanner(System.in);
@@ -64,16 +65,18 @@ public class MyContacts implements MyContactsAdt {
 
     @Override
     public void searchcontact() {
+        int size = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("You could search for a contact from their first names:");
         String name = sc.next();
         MyList<Integer> lists = matchfirst(name);
-        int size = lists.size;
         boolean a = false;
+        size = lists.size;
         if (size > 1) {
             a = true;
         }
-        System.out.println(a ? size + " Matches found!" : " Match found!");
+
+        System.out.println(a ? size + " Matches found!" : size + " Match found!");
         for (int i = 0; i < size; i++) {
             int index = lists.getData(i);
             System.out.println(MyContactsBook.getData(index));
@@ -151,7 +154,15 @@ public class MyContacts implements MyContactsAdt {
         MyList<String> contactNumbers = new MyList<String>();
         System.out.print("ContactNumber: ");
         String contactno = sc.next();
-        contactNumbers.add(contactno);
+        while (true) {
+            if (Pattern.matches("[0-9]+", contactno)) {
+                contactNumbers.add(contactno);
+                break;
+            } else {
+                System.out.println("Invaild option");
+                break;
+            }
+        }
         while (true) {
             System.out.print("Do You Want to add a new Contactnumber? (y/n) :");
             String a = sc.next();
@@ -163,14 +174,22 @@ public class MyContacts implements MyContactsAdt {
             if (at == 'y') {
                 System.out.print("ContactNumber: ");
                 contactno = sc.next();
-                contactNumbers.add(contactno);
+                if (Pattern.matches("[0-9]+", contactno)) {
+
+                    contactNumbers.add(contactno);
+                } else {
+                    System.out.println("Invaild option");
+                }
             } else if (at == 'n') {
                 break;
             } else {
                 System.out.println("Please Enter a Vaild Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
             }
         }
+
         return contactNumbers;
+
+
     }
 
     private String GetEmail() {
