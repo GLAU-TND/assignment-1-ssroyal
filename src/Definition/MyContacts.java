@@ -35,6 +35,7 @@ public class MyContacts implements MyContactsAdt {
             response = MyContactsBook.getData(i);
             System.out.println(response);
         }
+        System.out.println("Total Contacts: " + MyContactsBook.size);
 
     }
 
