@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class MyContacts implements MyContactsAdt {
     Scanner sc = new Scanner(System.in);
+
     MyList<Person> MyContactsBook = new MyList<Person>();
     MyList<String> contactNumbers = new MyList<>();
 
@@ -18,14 +19,13 @@ public class MyContacts implements MyContactsAdt {
         String Email = GetEmail();
         Person newContact;
         newContact = new Person(firstname, lastname, Email, contactNumbers);
-        MyContactsBook.add(newContact);
+        int index = compareFirstname(firstname);
+        MyContactsBook.add(newContact, index);
         System.out.println("Contact Added SucessFully");
         System.out.println();
         System.out.println();
 
-
     }
-
     @Override
     public void viewContacts() {
         System.out.println("---Here are all your contacts---\n" +
