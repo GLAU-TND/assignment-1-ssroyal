@@ -79,6 +79,12 @@ public class MyContacts implements MyContactsAdt {
         }
     }
 
+    private Person selectcontact(int index) {
+        Person p = MyContactsBook.getData(index - 1);
+        return p;
+
+    }
+
     private String GetFirstName() {
         System.out.println("Please Enter the name of the Person");
         System.out.print("FirstName: ");
