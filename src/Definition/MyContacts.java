@@ -74,11 +74,25 @@ public class MyContacts implements MyContactsAdt {
         }
     }
 
-    private Person selectcontact(int index) {
-        Person p = MyContactsBook.getData(index - 1);
-        return p;
+    private MyList<Integer> matchfirst(String Firstname) {
+        MyList<Integer> indexes = new MyList<>();
+        if (MyContactsBook.size == 0) {
+        } else {
+            for (int i = 0; i < MyContactsBook.size; i++) {
+                Person temp = MyContactsBook.getData(i);
+                String name = temp.getFirstName();
+                name = name.toLowerCase();
+                Firstname = Firstname.toLowerCase();
 
+                if (name.compareTo(Firstname) == 0) {
+                    indexes.add(i);
+                }
+
+            }
+        }
+        return indexes;
     }
+
 
     private int compareFirstname(String Firstname) {
         int index = 0;
