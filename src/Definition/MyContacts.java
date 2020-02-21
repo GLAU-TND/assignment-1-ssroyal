@@ -69,6 +69,7 @@ public class MyContacts implements MyContactsAdt {
         Scanner sc = new Scanner(System.in);
         System.out.println("You could search for a contact from their first names:");
         String name = sc.next();
+        name = name.trim();
         MyList<Integer> lists = matchfirst(name);
         boolean a = false;
         size = lists.size;
