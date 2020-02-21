@@ -90,6 +90,7 @@ public class MyContacts implements MyContactsAdt {
     private MyList<Integer> matchfirst(String Firstname) {
         MyList<Integer> indexes = new MyList<>();
         if (MyContactsBook.size == 0) {
+            System.out.println("There are no contacts added please add some");
         } else {
             for (int i = 0; i < MyContactsBook.size; i++) {
                 Person temp = MyContactsBook.getData(i);
