@@ -73,7 +73,7 @@ public class MyContacts implements MyContactsAdt {
                 System.out.println("Invaild Input");
             } else {
                 Person p = MyContactsBook.getData(index - 1);
-                String name = p.getFirstName();
+                String name = p.getFirstName() + p.getLastName();
                 MyContactsBook.remove(index - 1);
                 System.out.println(name + "'s Contact has been removed Successfully");
             }
