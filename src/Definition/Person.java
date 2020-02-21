@@ -34,9 +34,12 @@ public class Person {
             } else
                 contacts.append(",").append(contactNumbers.getData(i));
         }
-        if (contactNumbers.size == 1) {
+        if (contactNumbers.size == 0) {
+            contacts.append("null");
+        } else if (contactNumbers.size == 1) {
             a = true;
         }
+
         return a ? "Contact: " + contacts : "Contacts:" + contacts;
     }
 
