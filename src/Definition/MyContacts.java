@@ -40,28 +40,6 @@ public class MyContacts implements MyContactsAdt {
 
     }
 
-    private int compareFirstname(String Firstname) {
-        int index = 0;
-        if (MyContactsBook.size == 0) {
-        } else {
-            for (int i = 0; i < MyContactsBook.size; i++) {
-                index = i;
-                Person temp = MyContactsBook.getData(i);
-                String name = temp.getFirstName();
-                name = name.toLowerCase();
-                Firstname = Firstname.toLowerCase();
-                if (name.compareTo(Firstname) < 0) {
-                    index++;
-                } else {
-                    break;
-                }
-
-            }
-
-        }
-        return index;
-    }
-
     @Override
     public void deletecontact() {
         Scanner sc = new Scanner(System.in);
@@ -100,6 +78,30 @@ public class MyContacts implements MyContactsAdt {
         Person p = MyContactsBook.getData(index - 1);
         return p;
 
+    }
+
+    private int compareFirstname(String Firstname) {
+        int index = 0;
+        if (MyContactsBook.size == 0) {
+        } else {
+            for (int i = 0; i < MyContactsBook.size; i++) {
+                Person temp = MyContactsBook.getData(i);
+                String name = temp.getFirstName();
+                name = name.toLowerCase();
+                Firstname = Firstname.toLowerCase();
+                if (name.compareTo(Firstname) < 0) {
+                    index++;
+                } else if (name.compareTo(Firstname) == 0) {
+                    return index;
+
+                } else {
+                    break;
+                }
+
+            }
+
+        }
+        return index;
     }
 
     private String GetFirstName() {
