@@ -48,7 +48,7 @@ public class MyContacts implements MyContactsAdt {
         System.out.print("Press the number against the contact to delete it: ");
         try {
             int index = sc.nextInt();
-            if (index > MyContactsBook.size) {
+            if (index > MyContactsBook.size || index == 0) {
                 System.out.println("Invaild Input");
             } else {
                 Person p = MyContactsBook.getData(index - 1);
