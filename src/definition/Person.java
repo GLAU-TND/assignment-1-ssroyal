@@ -1,40 +1,40 @@
-package Definition;
+package definition;
 
 public class Person {
-    private String FirstName;
-    private String LastName;
-    private String Email;
-    private MyList<String> ContactNumbers;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private MyList<String> contactNumbers;
 
     public Person(String firstName, String lastName, String email, MyList<String> contactNumbers) {
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email;
-        ContactNumbers = contactNumbers;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.contactNumbers = contactNumbers;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public String getContactNumbers() {
         StringBuilder contacts = new StringBuilder();
         boolean a = false;
-        for (int i = 0; i < ContactNumbers.size; i++) {
+        for (int i = 0; i < contactNumbers.size; i++) {
             if (i == 0) {
-                contacts.append(ContactNumbers.getData(i));
+                contacts.append(contactNumbers.getData(i));
             } else
-                contacts.append(",").append(ContactNumbers.getData(i));
+                contacts.append(",").append(contactNumbers.getData(i));
         }
-        if (ContactNumbers.size == 1) {
+        if (contactNumbers.size == 1) {
             a = true;
         }
         return a ? "Contact: " + contacts : "Contacts:" + contacts;

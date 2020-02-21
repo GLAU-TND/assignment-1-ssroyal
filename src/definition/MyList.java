@@ -1,6 +1,6 @@
-package Definition;
+package definition;
 
-import Adt.MyListADT;
+import adt.MyListADT;
 
 public class MyList<E> implements MyListADT<E> {
     private Node head = null;
@@ -43,7 +43,7 @@ public class MyList<E> implements MyListADT<E> {
 
     }
 
-    private E removefirst() {
+    private E removeFirst() {
         Node<E> temp = head;
         E response = null;
         if (head != null) {
@@ -73,7 +73,7 @@ public class MyList<E> implements MyListADT<E> {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException(Integer.toString(index));
         } else if (index == 0) {
-            response = removefirst();
+            response = removeFirst();
         } else {
             Node<E> previousNode = getNode(index - 1);
             response = removeAfter(previousNode);
