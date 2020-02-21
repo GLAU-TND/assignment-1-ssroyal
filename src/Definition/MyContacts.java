@@ -154,11 +154,15 @@ public class MyContacts implements MyContactsAdt {
         while (true) {
             System.out.print("Do You Want to add a new Contactnumber? (y/n) :");
             String a = sc.next();
-            if (a.equals("y")) {
+            char at = a.charAt(0);
+            if (a.length() > 1) {
+                System.out.println("Please Enter a Vaild Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
+            }
+            if (at == 'y') {
                 System.out.print("ContactNumber: ");
                 contactno = sc.next();
                 contactNumbers.add(contactno);
-            } else if (a.equals("n")) {
+            } else if (at == 'n') {
                 break;
             } else {
                 System.out.println("Please Enter a Vaild Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
