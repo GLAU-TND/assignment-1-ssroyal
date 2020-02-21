@@ -2,6 +2,7 @@ package Definition;
 
 import Adt.MyContactsAdt;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MyContacts implements MyContactsAdt {
@@ -62,8 +63,24 @@ public class MyContacts implements MyContactsAdt {
     }
 
     @Override
-    public Object deletecontact() {
-        return null;
+    public void deletecontact() {
+        Scanner sc = new Scanner(System.in);
+        printnames();
+        System.out.print("Press the number against the contact to delete it: ");
+        try {
+            int index = sc.nextInt();
+            if (index > MyContactsBook.size) {
+                System.out.println("Invaild Input");
+            } else {
+                Person p = MyContactsBook.getData(index - 1);
+                String name = p.getFirstName();
+                MyContactsBook.remove(index - 1);
+                System.out.println(name + "'s Contact has been removed Successfully");
+            }
+        } catch (InputMismatchException E) {
+            System.out.println("Integer input expected ");
+        }
+
     }
 
     @Override
