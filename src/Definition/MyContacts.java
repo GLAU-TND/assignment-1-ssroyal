@@ -157,6 +157,7 @@ public class MyContacts implements MyContactsAdt {
             char at = a.charAt(0);
             if (a.length() > 1) {
                 System.out.println("Please Enter a Vaild Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
+                continue;
             }
             if (at == 'y') {
                 System.out.print("ContactNumber: ");
