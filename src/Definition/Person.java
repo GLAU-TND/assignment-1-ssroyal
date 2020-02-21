@@ -1,4 +1,4 @@
-package definition;
+package Definition;
 
 public class Person {
     private String firstName;

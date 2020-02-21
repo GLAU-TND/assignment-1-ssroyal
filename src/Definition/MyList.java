@@ -1,6 +1,6 @@
-package definition;
+package Definition;
 
-import adt.MyListADT;
+import Adt.MyListADT;
 
 public class MyList<E> implements MyListADT<E> {
     private Node head = null;

@@ -1,11 +1,11 @@
-package adt;
+package Adt;
 
 public interface MyContactsAdt {
     void addContact();
 
     void viewContacts();
 
-    void deleteContact();
+    void deletecontact();
 
-    void searchContact();
+    void searchcontact();
 }

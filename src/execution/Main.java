@@ -1,6 +1,6 @@
 package execution;
 
-import definition.MyContacts;
+import Definition.MyContacts;
 
 import java.util.Scanner;
 
@@ -30,10 +30,10 @@ public class Main {
                     user.viewContacts();
                     break;
                 case '3':
-                    user.searchContact();
+                    user.searchcontact();
                     break;
                 case '4':
-                    user.deleteContact();
+                    user.deletecontact();
                     break;
                 case '5':
                     System.out.println("Thank You");
