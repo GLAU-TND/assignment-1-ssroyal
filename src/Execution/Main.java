@@ -16,21 +16,26 @@ public class Main {
                     "Press 3 to search for a contact\n" +
                     "Press 4 to delete a contact\n" +
                     "Press 5 to exit program ");
-            int choice = sc.nextInt();
+            String str = sc.next();
+            if (str.length() > 1) {
+                System.out.println("Invaild Option");
+                continue;
+            }
+            char choice = str.charAt(0);
             switch (choice) {
-                case 1:
+                case '1':
                     user.addContact();
                     break;
-                case 2:
+                case '2':
                     user.viewContacts();
                     break;
-                case 3:
+                case '3':
                     user.searchcontact();
                     break;
-                case 4:
+                case '4':
                     user.deletecontact();
                     break;
-                case 5:
+                case '5':
                     System.out.println("Thank You");
                     System.out.println("Have a great Day");
                     response = false;
@@ -40,6 +45,7 @@ public class Main {
             }
 
         } while (response);
+
 
     }
 }
