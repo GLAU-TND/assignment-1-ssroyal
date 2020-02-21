@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class MyContacts implements MyContactsAdt {
     Scanner sc = new Scanner(System.in);
 
-    MyList<Person> MyContactsBook = new MyList<Person>();
+    MyList<Person> MyContactsBook = new MyList<>();
     MyList<String> contactNumbers = new MyList<>();
 
     @Override
@@ -30,9 +30,9 @@ public class MyContacts implements MyContactsAdt {
     public void viewContacts() {
         System.out.println("---Here are all your contacts---\n" +
                 "-------- * -------- * -------- * --------");
-        Person response = null;
+
         for (int i = 0; i < MyContactsBook.size; i++) {
-            response = MyContactsBook.getData(i);
+            Person response = MyContactsBook.getData(i);
             System.out.println(response);
         }
         System.out.println("Total Contacts: " + MyContactsBook.size);
@@ -51,7 +51,6 @@ public class MyContacts implements MyContactsAdt {
                 Firstname = Firstname.toLowerCase();
                 if (name.compareTo(Firstname) < 0) {
                     index++;
-                    continue;
                 } else {
                     break;
                 }
@@ -70,6 +69,14 @@ public class MyContacts implements MyContactsAdt {
     @Override
     public void searchcontact() {
 
+    }
+
+    private void printnames() {
+        System.out.println("Here are your all contacts:");
+        for (int i = 0; i < MyContactsBook.size; i++) {
+            Person temp = MyContactsBook.getData(i);
+            System.out.println((i + 1) + "." + temp.getFirstName() + " " + temp.getLastName());
+        }
     }
 
     private String GetFirstName() {

@@ -1,10 +1,10 @@
 package Definition;
 
 public class Person {
-    private String FirstName = null;
-    private String LastName = null;
-    private String Email = null;
-    private MyList<String> ContactNumbers = new MyList<String>();
+    private String FirstName;
+    private String LastName;
+    private String Email;
+    private MyList<String> ContactNumbers;
 
     public Person(String firstName, String lastName, String email, MyList<String> contactNumbers) {
         FirstName = firstName;
@@ -26,13 +26,13 @@ public class Person {
     }
 
     public String getContactNumbers() {
-        String contacts = "";
+        StringBuilder contacts = new StringBuilder();
         boolean a = false;
         for (int i = 0; i < ContactNumbers.size; i++) {
             if (i == 0) {
-                contacts = contacts + ContactNumbers.getData(i);
+                contacts.append(ContactNumbers.getData(i));
             } else
-                contacts = contacts + "," + ContactNumbers.getData(i);
+                contacts.append(",").append(ContactNumbers.getData(i));
         }
         if (ContactNumbers.size == 1) {
             a = true;

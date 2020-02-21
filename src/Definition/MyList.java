@@ -3,7 +3,7 @@ package Definition;
 import Adt.MyListADT;
 
 public class MyList<E> implements MyListADT<E> {
-    private Node<E> head = null;
+    private Node head = null;
     public int size = 0;
 
     private Node<E> getNode(int index) {
