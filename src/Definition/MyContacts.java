@@ -38,6 +38,29 @@ public class MyContacts implements MyContactsAdt {
 
     }
 
+    private int compareFirstname(String Firstname) {
+        int index = 0;
+        if (MyContactsBook.size == 0) {
+        } else {
+            for (int i = 0; i < MyContactsBook.size; i++) {
+                index = i;
+                Person temp = MyContactsBook.getData(i);
+                String name = temp.getFirstName();
+                name = name.toLowerCase();
+                Firstname = Firstname.toLowerCase();
+                if (name.compareTo(Firstname) < 0) {
+                    index++;
+                    continue;
+                } else {
+                    break;
+                }
+
+            }
+
+        }
+        return index;
+    }
+
     @Override
     public Object deletecontact() {
         return null;
