@@ -63,7 +63,20 @@ public class MyContacts implements MyContactsAdt {
 
     @Override
     public void searchcontact() {
-
+        Scanner sc = new Scanner(System.in);
+        System.out.println("You could search for a contact from their first names:");
+        String name = sc.next();
+        MyList<Integer> lists = matchfirst(name);
+        int size = lists.size;
+        boolean a = false;
+        if (size > 1) {
+            a = true;
+        }
+        System.out.println(a ? size + " Matches found!" : " Match found!");
+        for (int i = 0; i < size; i++) {
+            int index = lists.getData(i);
+            System.out.println(MyContactsBook.getData(index));
+        }
     }
 
     private void printnames() {
