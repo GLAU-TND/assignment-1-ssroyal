@@ -160,7 +160,7 @@ public class MyContacts implements MyContactsAdt {
                 contactNumbers.add(contactno);
                 break;
             } else {
-                System.out.println("Invaild option");
+                System.out.println("Invaild PhoneNumber");
                 break;
             }
         }
@@ -179,7 +179,7 @@ public class MyContacts implements MyContactsAdt {
 
                     contactNumbers.add(contactno);
                 } else {
-                    System.out.println("Invaild option");
+                    System.out.println("Invaild PhoneNumber");
                 }
             } else if (at == 'n') {
                 break;
