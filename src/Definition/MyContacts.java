@@ -17,11 +17,11 @@ public class MyContacts implements MyContactsAdt {
         System.out.println("You have chosen to add a new contact:");
         String firstname = GetFirstName();
         String lastname = GetLastname();
-        contactNumbers = GetContactnumbers();
+        contactNumbers = GetContactNumbers();
         String Email = GetEmail();
         Person newContact;
         newContact = new Person(firstname, lastname, Email, contactNumbers);
-        int index = compareFirstname(firstname);
+        int index = compareFirstName(firstname);
         MyContactsBook.add(newContact, index);
         System.out.println("Contact Added SucessFully");
         System.out.println();
@@ -43,9 +43,9 @@ public class MyContacts implements MyContactsAdt {
     }
 
     @Override
-    public void deletecontact() {
+    public void deleteContact() {
         Scanner sc = new Scanner(System.in);
-        printnames();
+        printNames();
         System.out.print("Press the number against the contact to delete it: ");
         try {
             int index = sc.nextInt();
@@ -64,13 +64,13 @@ public class MyContacts implements MyContactsAdt {
     }
 
     @Override
-    public void searchcontact() {
+    public void searchContact() {
         int size = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("You could search for a contact from their first names:");
         String name = sc.next();
         name = name.trim();
-        MyList<Integer> lists = matchfirst(name);
+        MyList<Integer> lists = matchFirst(name);
         boolean a = false;
         size = lists.size;
         if (size > 1) {
@@ -84,7 +84,7 @@ public class MyContacts implements MyContactsAdt {
         }
     }
 
-    private void printnames() {
+    private void printNames() {
         System.out.println("Here are your all contacts:");
         for (int i = 0; i < MyContactsBook.size; i++) {
             Person temp = MyContactsBook.getData(i);
@@ -92,7 +92,7 @@ public class MyContacts implements MyContactsAdt {
         }
     }
 
-    private MyList<Integer> matchfirst(String Firstname) {
+    private MyList<Integer> matchFirst(String Firstname) {
         MyList<Integer> indexes = new MyList<>();
         if (MyContactsBook.size == 0) {
         } else {
@@ -112,7 +112,7 @@ public class MyContacts implements MyContactsAdt {
     }
 
 
-    private int compareFirstname(String Firstname) {
+    private int compareFirstName(String Firstname) {
         int index = 0;
         if (MyContactsBook.size == 0) {
         } else {
@@ -151,7 +151,7 @@ public class MyContacts implements MyContactsAdt {
 
     }
 
-    private MyList<String> GetContactnumbers() {
+    private MyList<String> GetContactNumbers() {
         MyList<String> contactNumbers = new MyList<String>();
         System.out.print("ContactNumber: ");
         String contactno = sc.next();

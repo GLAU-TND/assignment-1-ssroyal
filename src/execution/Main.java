@@ -1,3 +1,12 @@
+/**
+ * Saurabh's Contact List App is a simple contacts management Application
+ * Allows to add ,search and delete contacts
+ *
+ * @author Saurabh Saraswat
+ * @version 1.0;
+ */
+
+
 package execution;
 
 import Definition.MyContacts;
@@ -30,10 +39,10 @@ public class Main {
                     user.viewContacts();
                     break;
                 case '3':
-                    user.searchcontact();
+                    user.searchContact();
                     break;
                 case '4':
-                    user.deletecontact();
+                    user.deleteContact();
                     break;
                 case '5':
                     System.out.println("Thank You");

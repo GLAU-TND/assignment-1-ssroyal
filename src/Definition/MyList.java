@@ -6,6 +6,10 @@ public class MyList<E> implements MyListADT<E> {
     private Node head = null;
     public int size = 0;
 
+    /**
+     * @param index
+     * @return response
+     */
     private Node<E> getNode(int index) {
         Node<E> response = head;
         for (int i = 0; i < index; i++) {
@@ -22,7 +26,7 @@ public class MyList<E> implements MyListADT<E> {
         } else if (index == 0) {
             addFirst(item);
         } else {
-            addafter(item, getNode(index - 1));
+            addAfter(item, getNode(index - 1));
         }
 
     }
@@ -32,7 +36,7 @@ public class MyList<E> implements MyListADT<E> {
         size++;
     }
 
-    private void addafter(E item, Node<E> afternode) {
+    private void addAfter(E item, Node<E> afternode) {
         afternode.next = new Node<>(item, afternode.next);
         size++;
     }
