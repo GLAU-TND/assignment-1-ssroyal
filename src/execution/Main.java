@@ -1,11 +1,10 @@
-/**
- * Saurabh's Contact List App is a simple contacts management Application
- * Allows to add ,search and delete contacts
- * <p>
- * Created by IntelliJ IDEA Ultimate, 2019
- * User: ssroyal
- *
- * @author Saurabh Saraswat
+/*
+  Saurabh's Contact List App is a simple contacts management Application
+  Allows to add ,search and delete contacts
+ Created by IntelliJ IDEA Ultimate, 2019
+  User: ssroyal
+
+  @author Saurabh Saraswat
  * @version 1.0;
  */
 package execution;
@@ -28,7 +27,7 @@ public class Main {
                     "Press 5 to exit program ");
             String str = sc.next();
             if (str.length() > 1) {
-                System.out.println("Invaild Option");
+                System.out.println("Invalid Option");
                 continue;
             }
             char choice = str.charAt(0);
@@ -51,7 +50,7 @@ public class Main {
                     response = false;
                     break;
                 default:
-                    System.out.println("Invaild Option");
+                    System.out.println("Invalid Option");
             }
 
         } while (response);
