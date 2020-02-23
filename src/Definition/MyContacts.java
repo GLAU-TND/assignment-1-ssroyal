@@ -195,9 +195,8 @@ public class MyContacts implements MyContactsAdt {
 
     private String GetEmail() {
         String Email = null;
+        System.out.print("Do You Want to add an email ? (y/n) :");
         while (true) {
-
-            System.out.print("Do You Want to add an email ? (y/n) :");
             String a = sc.next();
             char at = a.charAt(0);
             if (a.length() > 1) {
@@ -207,6 +206,7 @@ public class MyContacts implements MyContactsAdt {
             if (at == 'y') {
                 System.out.print("Email Address: ");
                 Email = sc.next();
+                break;
             } else if (at == 'n') {
                 break;
             } else {
