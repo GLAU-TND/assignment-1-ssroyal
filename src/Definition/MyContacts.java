@@ -61,7 +61,7 @@ public class MyContacts implements MyContactsAdt {
         /*
           Showing confirmation message
          */
-        System.out.println("Contact Added SucessFully");
+        System.out.println("Contact Added Successfully");
         System.out.println();
         System.out.println();
 
@@ -117,10 +117,10 @@ public class MyContacts implements MyContactsAdt {
              */
             int index = sc.nextInt();
             /*
-            Checking if the input is 0 or more than size if yes printing Invaild Input message
+            Checking if the input is 0 or more than size if yes printing Invalid Input message
              */
             if (index > myContactsBook.size || index == 0) {
-                System.out.println("Invaild Input");
+                System.out.println("Invalid Input");
             } else {
             /*
                 getting the data of the contact by getData() method and passing 1 less than the input passed by user to get the correct index
@@ -130,7 +130,7 @@ public class MyContacts implements MyContactsAdt {
                 /*
                 Get the FirstName and LastName of the contact for showing message after deletion
                  */
-                String name = p.getFirstName() + p.getLastName();
+                String name = p.getFirstName() + " " + p.getLastName();
                 /*
                 deleting that contact by calling remove() method with index-1
                  */
@@ -157,7 +157,7 @@ public class MyContacts implements MyContactsAdt {
         /*
         Taking input of user and some initial declaration
          */
-        int size = 0;
+        int size;
         Scanner sc = new Scanner(System.in);
         System.out.println("You could search for a contact from their first names:");
         String name = sc.next();
@@ -170,7 +170,7 @@ public class MyContacts implements MyContactsAdt {
          */
         MyList<Integer> indexesList = matchFirst(name);
         /*
-        initalization of a boolean variable for ternary operation
+        initialization of a boolean variable for ternary operation
          */
         boolean a = false;
         /*
@@ -178,16 +178,22 @@ public class MyContacts implements MyContactsAdt {
          */
         size = indexesList.size;
         if (size > 1) {
-            /*
+            /*;
             if only 1 match found i.e, the size of the list is 1 then make a =true
              */
             a = true;
         }
         /*
+        Check if No result found
+         */
+        if (size == 0) {
+            System.out.println("NO RESULTS FOUND");
+        } else
+        /*
         Print the number of match(es) Found
          */
 
-        System.out.println(a ? size + " Matches found!" : size + " Match found!");
+            System.out.println(a ? size + " Matches found!" : size + " Match found!");
         /*
         Print every matched contact by the indexes in the indexesList
          */
@@ -228,6 +234,7 @@ public class MyContacts implements MyContactsAdt {
         if myContactBook is empty do nothing
          */
         if (myContactsBook.size == 0) {
+            System.out.println("There are No contacts saved please add some");
         }
         /*
         Traversing myContactBook to match with the firstName
@@ -264,18 +271,21 @@ public class MyContacts implements MyContactsAdt {
     }
 
 
-    /**This is a helper method for addContact() method
+    /**
+     * This is a helper method for addContact() method
      * it helps in comparing the firstName of a contact and return a single index
      * of the contact that is found Lexicographically  equal or greater
-     * @param Firstname the name to be compared
+     *
+     * @param FirstName the name to be compared
      * @return index of the contact equal or greater Lexicographically
      */
-    private int compareFirstName(String Firstname) {
+    private int compareFirstName(String FirstName) {
         int index = 0;
         /*
         If there is no contact do nothing and return the first index as no sorting is required
          */
         if (myContactsBook.size == 0) {
+            return index;
         }
         /*
             Traversing myContactBook to compare everyName
@@ -294,17 +304,17 @@ public class MyContacts implements MyContactsAdt {
                 Converting both the passed name and ContactName to lowercase to achieve case Insensitivity
                  */
                 name = name.toLowerCase();
-                Firstname = Firstname.toLowerCase();
+                FirstName = FirstName.toLowerCase();
                 /*
                 If passed name is smaller increase the value of index by 1
                  */
-                if (name.compareTo(Firstname) < 0) {
+                if (name.compareTo(FirstName) < 0) {
                     index++;
                 }
                 /*
                 if the name found equal or greater break the loop and return the index
                  */
-                else if (name.compareTo(Firstname) == 0) {
+                else if (name.compareTo(FirstName) == 0) {
                     break;
                 } else {
                     break;
@@ -316,7 +326,7 @@ public class MyContacts implements MyContactsAdt {
         return index;
     }
 
-    /** A helper method of addcontact() method
+    /** A helper method of addContact() method
      * use to input firstName of the Contact
      *
      * @return FirstName of the new contact
@@ -324,21 +334,19 @@ public class MyContacts implements MyContactsAdt {
     private String getFirstName() {
         System.out.println("Please Enter the name of the Person");
         System.out.print("FirstName: ");
-        String firstname = sc.next();
-        return firstname;
+        return sc.next();
 
     }
 
-    /** A helper method of addcontact() method
+    /** A helper method of addContact() method
      * use to input LastName of the Contact
      *
      * @return LastName of the new contact
      */
 
     private String getLastName() {
-        System.out.print("Lastname: ");
-        String lastname = sc.next();
-        return lastname;
+        System.out.print("LastName: ");
+        return sc.next();
 
     }
 
@@ -369,7 +377,8 @@ public class MyContacts implements MyContactsAdt {
                 break;
             }
             /*
-            if enetred number is not vaild i.e, contains characters except digits
+            if entered number is not valid i.e, contains characters except digits
+
              */
             else {
                 System.out.println("Invalid PhoneNumber");
@@ -381,13 +390,14 @@ public class MyContacts implements MyContactsAdt {
              */
             System.out.print("Do You Want to add a new ContactNumber? (y/n) :");
             String a = sc.next();
+            a = a.toLowerCase();
             /*
             Checking if the entered input is a single character or not
             if not printing Invalid input message
              */
             char at = a.charAt(0);
             if (a.length() > 1) {
-                System.out.println("Please Enter a Valid Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
+                System.out.println("Please Enter a Valid Input i.e., y for Yes or n for No");
                 continue;
             }
             /*
@@ -417,7 +427,7 @@ public class MyContacts implements MyContactsAdt {
             If there is some invalid input other than 'y' or 'n' then print Invalid input message
              */
             else {
-                System.out.println("Please Enter a Valid Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
+                System.out.println("Please Enter a Valid Input i.e., y for Yes or n for No");
             }
         }
 
@@ -427,7 +437,7 @@ public class MyContacts implements MyContactsAdt {
     }
 
     /**
-     * A helper method of addcontact() method
+     * A helper method of addContact() method
      * use to input email of the Contact
      * gives the choice if user want to add a email or not
      * there can only be a single email for a individual contact
@@ -442,13 +452,14 @@ public class MyContacts implements MyContactsAdt {
         System.out.print("Do You Want to add an email ? (y/n) :");
         while (true) {
             String a = sc.next();
+            a = a.toLowerCase();
             /*
             Checking if the entered input is a single character or not
             if not printing Invalid input message
              */
             char at = a.charAt(0);
             if (a.length() > 1) {
-                System.out.println("Please Enter a Valid Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
+                System.out.println("Please Enter a Valid Input i.e., y for Yes or n No");
                 continue;
             }
             /*
@@ -469,7 +480,7 @@ public class MyContacts implements MyContactsAdt {
             If there is some invalid input other than 'y' or 'n' then print Invalid input message
              */
             else {
-                System.out.println("Please Enter a Valid Input i.e., y(lowercase) for Yes or n(lowercase for NO)");
+                System.out.println("Please Enter a Valid Input i.e., y for Yes or n for No");
             }
         }
         return Email;

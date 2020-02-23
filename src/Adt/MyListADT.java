@@ -18,11 +18,12 @@ public interface MyListADT<E> {
     void add(E item);
 
     /**
-     * This method will Remove node from the end of the List and will return the same item
+     * This method will remove a node at a specified index
      *
-     * @return The data that is removed
+     * @param index the value of index
      */
-    E remove();
+    void remove(int index);
+
 
     /**
      * This method will Get the data of the the node present at the passed Index
