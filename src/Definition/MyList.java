@@ -17,7 +17,11 @@ public class MyList<E> implements MyListADT<E> {
      * This reference variable will hold the value for the first node of our list
      * Its Initial value is null when the list is empty
      */
-    private Node head = null;
+    private Node<E> head;
+
+    {
+        head = null;
+    }
 
     /**
      * This Method will return a node at the specified index
@@ -85,10 +89,10 @@ public class MyList<E> implements MyListADT<E> {
      */
     private void addFirst(E item) {
         /*
-          create a new node with reference value that head initally was holding
+          create a new node with reference value that head initially was holding
           Change the reference of the head to the new node created
          */
-        head = new Node(item, head);
+        head = new Node<>(item, head);
         /*
           increase the size of the list by 1
          */
@@ -99,14 +103,14 @@ public class MyList<E> implements MyListADT<E> {
      * This method will add a new node with a data item passed and after a specified node
      *
      * @param item      Data item of the  new node that is to be added
-     * @param afternode the node after which the new node is to be added
+     * @param afterNode the node after which the new node is to be added
      */
-    private void addAfter(E item, Node<E> afternode) {
+    private void addAfter(E item, Node<E> afterNode) {
         /*
-          create a new node with reference value that afternode initally was holding
-          Change the reference of the afternode to the new node created
+          create a new node with reference value that afterNode initially was holding
+          Change the reference of the afterNode to the new node created
          */
-        afternode.next = new Node<>(item, afternode.next);
+        afterNode.next = new Node<>(item, afterNode.next);
         size++;
 
     }
@@ -127,18 +131,16 @@ public class MyList<E> implements MyListADT<E> {
 
     /**
      * This method will remove the first node from the list and return the data of that node
-     *
-     * @return the node that is deleted
      */
-    private E removeFirst() {
+    private void removeFirst() {
         /*
           make a temp variable to hold the initial head value
          */
         Node<E> temp = head;
         /*
-          initaiallze the resonse variable to be returned
+          initialize the response variable to be returned
          */
-        E response = null;
+
         /*
           check if list is not empty i.e., head is not null
          */
@@ -156,26 +158,23 @@ public class MyList<E> implements MyListADT<E> {
               decrease the size of the list
              */
             size--;
-            /*
-              pass the data of the temp(previous reference of head ) to response variable
-             */
-            response = temp.getData();
+
 
         }
-        return response;
+
     }
 
     /**
      * This method will remove a node after a specified node and will return data of that node
      *
-     * @param afternode the node after of which the node is to be remove
-     * @return data of the node removed
+     * @param afterNode the node after of which the node is to be remove
+
      */
-    private E removeAfter(Node<E> afternode) {
+    private void removeAfter(Node<E> afterNode) {
         /*
-          make a temp variable to hold the reference of the afternode (for the data to be returned)
+          make a temp variable to hold the reference of the afterNode (for the data to be returned)
          */
-        Node<E> temp = afternode.getNext();
+        Node<E> temp = afterNode.getNext();
         /*
           Check if temp is not null
          */
@@ -183,28 +182,22 @@ public class MyList<E> implements MyListADT<E> {
             /*
               change the reference of the node to the reference of the node to be deleted
              */
-            afternode.next = temp.getNext();
+            afterNode.next = temp.getNext();
             /*
               decrease the size by 1
              */
             size--;
         }
-        /*
-          response hold the data of the removed node
-         */
-        E response = temp.getData();
-        return response;
+
     }
 
     /**
      * This method will remove a node at a specified index
      *
      * @param index the value of index
-     * @return data of tha removed node
      */
-
-    public E remove(int index) {
-        E response;
+    @Override
+    public void remove(int index) {
         /*
           check if index is less then 0 or more than size of the list
           if yes throw an exception
@@ -216,26 +209,16 @@ public class MyList<E> implements MyListADT<E> {
           if passed index is 0 call the removeFirst() method
          */
         else if (index == 0) {
-            response = removeFirst();
+            removeFirst();
         }
         /*
-          call the removeAfter() method and get the afternode value by getNode() method
+          call the removeAfter() method and get the afterNode value by getNode() method
          */
         else {
             Node<E> previousNode = getNode(index - 1);
-            response = removeAfter(previousNode);
+            removeAfter(previousNode);
         }
-        return response;
-    }
 
-    /**
-     * This method will remove the last node of the list and return the data of that node
-     *
-     * @return data of the node removed
-     */
-    @Override
-    public E remove() {
-        return remove(size - 1);
     }
 
     /**
@@ -261,7 +244,7 @@ public class MyList<E> implements MyListADT<E> {
         private Node<E> next;
 
         /**
-         * Constructor to initalize the data and next fields of the node class
+         * Constructor to initialize the data and next fields of the node class
          *
          * @param data data of the node
          * @param next reference of the node
