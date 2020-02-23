@@ -64,44 +64,44 @@ public class Person {
      */
 
     public String getContactNumbers() {
-        /**
-         * Initialize a new String Builder for storing contact String
+        /*
+          Initialize a new String Builder for storing contact String
          */
         StringBuilder contacts = new StringBuilder();
-        /**
-         * initialization of a boolean variable for ternary operation that was required
-         * */
+        /*
+          initialization of a boolean variable for ternary operation that was required
+          */
         boolean a = false;
-        /**
-         * a loop to traverse all the contactNumbers list
+        /*
+          a loop to traverse all the contactNumbers list
          */
         for (int i = 0; i < contactNumbers.size; i++) {
             if (i == 0) {
-                /**
-                 * first contact append without comma
+                /*
+                  first contact append without comma
                  */
                 contacts.append(contactNumbers.getData(i));
             } else
-            /**
-             * Second or afterwords contacts append with cooma
+            /*
+              Second or afterwords contacts append with cooma
              */
                 contacts.append(",").append(contactNumbers.getData(i));
         }
-        /**
-         * if no contacts found append null
+        /*
+          if no contacts found append null
          */
         if (contactNumbers.size == 0) {
             contacts.append("null");
         }
-        /**
-         * if only 1 contact found then change the value of a(boolean value initialized above) to true
+        /*
+          if only 1 contact found then change the value of a(boolean value initialized above) to true
          */
         else if (contactNumbers.size == 1) {
             a = true;
         }
-        /**
-         * if a found true return "Contact" + StringBuilder
-         * otherwise return  "Contacts" + StringBuilder
+        /*
+          if a found true return "Contact" + StringBuilder
+          otherwise return  "Contacts" + StringBuilder
          */
 
         return a ? "Contact: " + contacts : "Contacts:" + contacts;
