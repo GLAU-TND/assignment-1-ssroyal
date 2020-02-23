@@ -100,11 +100,11 @@ public class Person {
             a = true;
         }
         /*
-          if a found true return "Contact" + StringBuilder
-          otherwise return  "Contacts" + StringBuilder
+          if a found true return "Contact Number: " + StringBuilder
+          otherwise return  "Contact Numbers: " + StringBuilder
          */
 
-        return a ? "Contact: " + contacts : "Contacts:" + contacts;
+        return a ? "Contact Number: " + contacts : "Contact Numbers:" + contacts;
     }
 
     /**
@@ -113,7 +113,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Firstname: " + getFirstName() + "\n" + "Lastname:" + getLastName() + "\n" + getContactNumbers() + "\n" + "Email:" + getEmail() + "\n" + "-------- * -------- * -------- * --------\n" +
+        return "First Name: " + getFirstName() + "\n" + "Last Name:" + getLastName() + "\n" + getContactNumbers() + "\n" + "Email address:" + getEmail() + "\n" + "-------- * -------- * -------- * --------\n" +
                 "-------- * -------- * -------- * --------";
     }
 
