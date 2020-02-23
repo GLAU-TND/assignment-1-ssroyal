@@ -20,8 +20,8 @@ public class Person {
     /**
      * Constructor to initialize the value of the fields
      *
-     * @param firstName      the firstname of the person
-     * @param lastName       the lastname of the person
+     * @param firstName      the First Name of the person
+     * @param lastName       the Last Name of the person
      * @param email          the email of the person
      * @param contactNumbers all contact numbers of the person
      */
@@ -83,7 +83,7 @@ public class Person {
                 contacts.append(contactNumbers.getData(i));
             } else
             /*
-              Second or afterwords contacts append with cooma
+              Second or afterwords contacts append with comma
              */
                 contacts.append(",").append(contactNumbers.getData(i));
         }
@@ -100,20 +100,20 @@ public class Person {
             a = true;
         }
         /*
-          if a found true return "Contact" + StringBuilder
-          otherwise return  "Contacts" + StringBuilder
+          if a found true return "Contact Number: " + StringBuilder
+          otherwise return  "Contact Numbers: " + StringBuilder
          */
 
-        return a ? "Contact: " + contacts : "Contacts:" + contacts;
+        return a ? "Contact Number: " + contacts : "Contact Numbers:" + contacts;
     }
 
     /**
-     * overriden toString() method to print the contact according to requirement
+     * overridden toString() method to print the contact according to requirement
      */
 
     @Override
     public String toString() {
-        return "Firstname: " + getFirstName() + "\n" + "Lastname:" + getLastName() + "\n" + getContactNumbers() + "\n" + "Email:" + getEmail() + "\n" + "-------- * -------- * -------- * --------\n" +
+        return "First Name: " + getFirstName() + "\n" + "Last Name:" + getLastName() + "\n" + getContactNumbers() + "\n" + "Email address:" + getEmail() + "\n" + "-------- * -------- * -------- * --------\n" +
                 "-------- * -------- * -------- * --------";
     }
 
